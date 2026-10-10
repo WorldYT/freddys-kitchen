@@ -1,0 +1,297 @@
+<title>Freddy's Kitchen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,600&family=Karla:wght@400;500;600;700&display=swap">
+<style>
+/* "Morning in Caracas" — sunlit rustic breakfast house: woven-rattan warmth, cornmeal gold, black-bean ink, avocado accent */
+:root{
+  --bg:#faf6ee;          /* cornmeal cream */
+  --ink:#241a12;         /* black bean */
+  --soft:#7a6a57;
+  --card:#ffffff;
+  --gold:#d99a2b;        /* arepa gold */
+  --agua:#4e7a4a;        /* avocado */
+  --terra:#b4502e;       /* carne mechada */
+  --line:#e7ddcc;
+  --display:'Fraunces',Georgia,serif;
+  --body:'Karla',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);margin:0;font-size:16.5px;line-height:1.65;overflow-x:hidden}
+::selection{background:var(--gold);color:#241a12}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:22px}
+.demo-note{text-align:center;font-size:11.5px;letter-spacing:.06em;color:var(--soft);padding:10px 16px;border-bottom:1px solid var(--line)}
+/* NAV */
+.nav{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:24px;padding:10px 24px;border-radius:999px;background:rgba(250,246,238,.82);backdrop-filter:blur(14px);border:1px solid var(--line);white-space:nowrap;box-shadow:0 6px 30px rgba(36,26,18,.08)}
+.nav b{font-family:var(--display);font-weight:900;font-size:16px}
+.nav b i{color:var(--gold);font-style:normal}
+.nav a{color:var(--soft);text-decoration:none;font-size:13.5px;font-weight:600}
+.nav a:hover{color:var(--ink)}
+.nav .call{background:var(--terra);color:#fff;padding:8px 18px;border-radius:999px}
+@media(max-width:700px){.nav{gap:14px;padding:9px 16px}.nav a.hidephone{display:none}}
+/* HERO */
+.hero{min-height:96svh;display:grid;align-items:end;position:relative;overflow:hidden;color:#fff8ec}
+.heroimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;animation:kb 24s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.13) translateY(-2%)}}
+.heroshade{position:absolute;inset:0;background:linear-gradient(185deg,rgba(20,12,6,.42),rgba(20,12,6,.08) 45%,rgba(20,12,6,.72) 92%)}
+.hero-inner{position:relative;z-index:1;padding:0 22px 72px;max-width:1100px;margin:0 auto;width:100%;box-sizing:border-box}
+.kicker{font-family:var(--body);font-size:12.5px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.hero .kicker{color:#f2c061}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(3rem,8.5vw,6rem);line-height:.98;letter-spacing:-.02em;margin:16px 0 18px;max-width:15ch;text-wrap:balance;text-shadow:0 6px 50px rgba(0,0,0,.5)}
+h1 em{font-style:italic;font-weight:600;color:#f2c061}
+.lede{max-width:36em;font-size:18px;color:#f3e7d2;text-shadow:0 2px 16px rgba(0,0,0,.6)}
+.cta-row{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.btn{font-family:var(--body);display:inline-block;padding:15px 32px;border-radius:999px;font-weight:700;font-size:15.5px;text-decoration:none;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.btn.hot{background:var(--terra);color:#fff;box-shadow:0 10px 40px rgba(180,80,46,.45)}
+.btn.hot:hover{transform:translateY(-3px)}
+.btn.bone{border:1.5px solid rgba(255,248,236,.6);color:#fff8ec;backdrop-filter:blur(4px)}
+.hero .proof{display:flex;gap:40px;margin-top:44px;flex-wrap:wrap;font-size:13px;color:#e9d9bd}
+.hero .proof strong{display:block;font-family:var(--display);font-size:26px;color:#fff;font-variant-numeric:tabular-nums}
+/* STORY — pinned photo chapters */
+#story{height:300svh;position:relative}
+.story-stick{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;padding-bottom:9svh}
+.schapter{position:absolute;inset:0;opacity:0;transition:opacity .5s ease}
+.schapter img{width:100%;height:100%;object-fit:cover}
+.schapter::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,6,.35),rgba(20,12,6,.05) 40%,rgba(20,12,6,.72) 95%)}
+.scap{position:relative;z-index:2;max-width:30em;text-align:center;opacity:0;transform:translateY(18px);color:#fff8ec;padding-inline:24px;pointer-events:none}
+.scap h3{font-family:var(--display);font-size:clamp(26px,4vw,44px);font-weight:900;margin:0 0 8px;text-shadow:0 4px 34px rgba(0,0,0,.7)}
+.scap h3 span{color:#f2c061}
+.scap p{color:#efdfc4;margin:0;font-size:16px;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+/* SECTIONS */
+section.block{padding-block:7.5rem}
+h2{font-family:var(--display);font-weight:900;font-size:clamp(2.1rem,5vw,3.4rem);letter-spacing:-.015em;line-height:1.05;margin:12px 0 14px;max-width:22ch;text-wrap:balance}
+.sub{color:var(--soft);max-width:42em;margin-bottom:44px;font-size:17px}
+/* MENU */
+.mcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:46px}
+.mcat>h3{font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--terra);margin:0 0 16px;border-bottom:2px solid var(--gold);display:inline-block;padding-bottom:6px}
+.dish{display:flex;justify-content:space-between;gap:16px;padding-block:11px;border-bottom:1px dashed var(--line)}
+.dish div{min-width:0}
+.dish b{font-weight:700;font-size:15.5px}
+.dish .d{font-size:13.5px;color:var(--soft);margin-top:2px}
+.dish .p{font-family:var(--display);font-weight:700;color:var(--terra);font-variant-numeric:tabular-nums;white-space:nowrap}
+.fav{color:var(--gold);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-left:8px}
+.menunote{margin-top:28px;font-size:13px;color:var(--soft);border-left:3px solid var(--gold);padding-left:14px}
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.gal .g-wide{grid-column:span 2}
+@media(max-width:760px){.gal{grid-template-columns:1fr 1fr}.gal .g-wide{grid-column:span 2}}
+.gal figure{margin:0;border-radius:18px;overflow:hidden;position:relative;background:var(--card);box-shadow:0 10px 30px rgba(36,26,18,.10)}
+.gal img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:1/1;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.gal .g-wide img{aspect-ratio:2/1}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 13px;font-weight:700;font-size:14px;background:linear-gradient(transparent,rgba(20,12,6,.8));color:#fff8ec}
+/* FAMILY band */
+.family{background:var(--ink);color:#f3e7d2;border-radius:28px;padding:clamp(30px,5vw,60px);display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+@media(max-width:760px){.family{grid-template-columns:1fr}}
+.family h2{color:#fff8ec}
+.family .kicker{color:var(--gold)}
+.family p{color:#d9c6a6}
+.family img{width:100%;border-radius:18px;display:block}
+/* REVIEWS */
+.bigquote{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,4.4vw,3rem);line-height:1.15;max-width:25ch;margin:0}
+.bigquote .w{opacity:.14;display:inline-block}
+.bigquote cite{display:block;font-family:var(--body);font-style:normal;font-weight:500;font-size:15px;color:var(--soft);margin-top:22px}
+.marquee{overflow:hidden;margin-top:66px;border-block:1px solid var(--line);padding-block:18px}
+.marquee .track{display:flex;gap:56px;width:max-content;animation:mq 36s linear infinite}
+.marquee span{font-family:var(--display);font-weight:700;font-size:19px;color:var(--soft);white-space:nowrap}
+.marquee span i{color:var(--gold);font-style:normal;margin-right:12px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* VISIT */
+.visit{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:44px}
+.visit h3{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--agua);margin:0 0 14px;font-weight:700}
+.phone-big{font-family:var(--display);font-size:clamp(24px,3.6vw,34px);font-weight:900;color:var(--terra);user-select:all}
+.amen{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.amen span{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--soft);background:var(--card)}
+.mega{padding-block:9rem 7rem;text-align:center;background:linear-gradient(180deg,transparent,rgba(217,154,43,.1))}
+.mega h2{margin-inline:auto}
+footer{padding-block:34px;border-top:1px solid var(--line);color:var(--soft);font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.callbar{position:fixed;left:0;right:0;bottom:0;background:rgba(36,26,18,.94);backdrop-filter:blur(12px);color:#f3e7d2;display:none;justify-content:space-between;align-items:center;padding:12px 20px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));font-size:13.5px;z-index:49}
+.callbar a{background:var(--terra);color:#fff;padding:10px 20px;border-radius:999px;text-decoration:none;font-weight:700}
+@media(max-width:640px){.callbar{display:flex}body{padding-bottom:70px}}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.marquee .track{animation:none}.rv{opacity:1;transform:none}.heroimg{animation:none}}
+</style>
+
+<div class="demo-note">A concept redesign prepared for Freddy's Kitchen · not the restaurant's official website</div>
+
+<nav class="nav">
+  <b>FREDDY'S <i>KITCHEN</i></b>
+  <a href="#menu">Menu</a>
+  <a href="#visit" class="hidephone">Visit</a>
+  <a class="call" href="tel:+19542924822">(954) 292-4822</a>
+</nav>
+
+<section class="hero">
+  <img class="heroimg" src="biz/freddys/f2.jpg" alt="Venezuelan breakfast platter with arepa, carne mechada, perico eggs, fried cheese and black beans">
+  <div class="heroshade"></div>
+  <div class="hero-inner">
+    <div class="kicker">Venezuelan Kitchen · Sunrise, Florida</div>
+    <h1>Breakfast like <em>abuela</em> made it.</h1>
+    <p class="lede">Hand-formed arepas off the grill, slow-pulled carne mechada, perico eggs and real Venezuelan coffee — family-made in Sun Plaza since day one. Open from 7:30 AM.</p>
+    <div class="cta-row">
+      <a class="btn hot" href="tel:+19542924822">Call to Order</a>
+      <a class="btn bone" href="#menu">See the Menu</a>
+    </div>
+    <div class="proof">
+      <div><strong>4.8 ★</strong>334 Google reviews</div>
+      <div><strong>52</strong>reviews mention the arepas</div>
+      <div><strong>7:30 AM</strong>breakfast daily</div>
+    </div>
+  </div>
+</section>
+
+<div id="story">
+  <div class="story-stick">
+    <div class="schapter" data-i="0"><img src="biz/freddys/f6.jpg" alt="Pabellon bowl with tostones, stewed beef, yuca and avocado salad"></div>
+    <div class="schapter" data-i="1"><img src="biz/freddys/f3.jpg" alt="Arepa plate with carne mechada, fried queso and perico eggs"></div>
+    <div class="schapter" data-i="2"><img src="biz/freddys/f10.jpg" alt="Arepa with black beans, shredded beef, avocado and Venezuelan coffee"></div>
+    <div class="scap" data-i="0"><h3>Criollo, <span>the real way.</span></h3><p>Tostones smashed to order, yuca, stewed beef — the plates Venezuelans drive across Broward for.</p></div>
+    <div class="scap" data-i="1"><h3>The arepa <span>hits the grill.</span></h3><p>Crisp outside, steaming inside — stuffed with carne mechada, queso frito, or perico.</p></div>
+    <div class="scap" data-i="2"><h3>Finished with <span>cafecito.</span></h3><p>Black beans, avocado, and coffee the way it's poured back home.</p></div>
+  </div>
+</div>
+
+<section class="block wrap" id="menu">
+  <div class="rv">
+    <div class="kicker">The Kitchen</div>
+    <h2>What the regulars order</h2>
+    <p class="sub">Call <span style="user-select:all;font-weight:700;color:var(--ink)">(954) 292-4822</span> and it's ready for pickup — or come sit with the family. Frozen homemade meals available to take home.</p>
+  </div>
+  <div class="mcols">
+    <div class="mcat rv">
+      <h3>Arepas</h3>
+      <div class="dish"><div><b>Arepa Pelúa</b><span class="fav">52 reviews can't be wrong</span><div class="d">Carne mechada &amp; shredded gouda</div></div><div class="p">$9.95</div></div>
+      <div class="dish"><div><b>Arepa Reina Pepiada</b><div class="d">Creamy avocado chicken salad</div></div><div class="p">$9.95</div></div>
+      <div class="dish"><div><b>Arepa Dominó</b><div class="d">Black beans &amp; crumbled white cheese</div></div><div class="p">$8.95</div></div>
+      <div class="dish"><div><b>Arepa con Queso Frito</b><div class="d">Golden fried cheese, nothing else needed</div></div><div class="p">$8.95</div></div>
+    </div>
+    <div class="mcat rv">
+      <h3>Breakfast &amp; Plates</h3>
+      <div class="dish"><div><b>Desayuno Criollo</b><span class="fav">House favorite</span><div class="d">Arepa, perico eggs, queso frito, carne mechada &amp; black beans</div></div><div class="p">$14.95</div></div>
+      <div class="dish"><div><b>Pabellón Criollo</b><div class="d">The national dish — beef, beans, rice, tostones</div></div><div class="p">$15.95</div></div>
+      <div class="dish"><div><b>Chicken &amp; Mushroom Risotto</b><div class="d">A reviewer favorite beyond the classics</div></div><div class="p">$14.95</div></div>
+      <div class="dish"><div><b>Empanadas (2)</b><div class="d">Beef, chicken, or cheese — fried to order</div></div><div class="p">$7.95</div></div>
+    </div>
+    <div class="mcat rv">
+      <h3>To Drink &amp; Take Home</h3>
+      <div class="dish"><div><b>Café con Leche</b><div class="d">Venezuelan-style, strong and sweet</div></div><div class="p">$3.95</div></div>
+      <div class="dish"><div><b>Chicha / Papelón con Limón</b><div class="d">The drinks you grew up on</div></div><div class="p">$4.95</div></div>
+      <div class="dish"><div><b>Frozen Homemade Meals</b><span class="fav">Take abuela home</span><div class="d">Freezer-ready family portions</div></div><div class="p">ask</div></div>
+    </div>
+  </div>
+  <div class="menunote rv">Sample menu &amp; pricing for this concept — final menu provided by the restaurant before launch.</div>
+</section>
+
+<section class="block wrap" id="gallery" style="padding-top:0">
+  <div class="rv"><div class="kicker">From the Grill</div><h2>Plates worth the morning drive</h2></div>
+  <div class="gal">
+    <figure class="g-wide rv"><img src="biz/freddys/f2.jpg" alt="Full Venezuelan breakfast spread"><figcaption>Desayuno Criollo — the whole table</figcaption></figure>
+    <figure class="rv"><img src="biz/freddys/f1.jpg" alt="Arepa with reina pepiada and queso frito"><figcaption>Reina Pepiada</figcaption></figure>
+    <figure class="rv"><img src="biz/freddys/f6.jpg" alt="Pabellon bowl with tostones and avocado"><figcaption>Pabellón bowl</figcaption></figure>
+    <figure class="rv"><img src="biz/freddys/f9.jpg" alt="Grilled arepa with pulled pork and perico"><figcaption>Hot off the budare</figcaption></figure>
+    <figure class="g-wide rv"><img src="biz/freddys/f10.jpg" alt="Arepa, black beans with cheese, avocado and coffee"><figcaption>Black beans, avocado, cafecito</figcaption></figure>
+  </div>
+  <div class="menunote rv" style="margin-top:20px">Real photos of Freddy's Kitchen dishes from the restaurant's public Google listing.</div>
+</section>
+
+<section class="block wrap">
+  <div class="family rv">
+    <div>
+      <div class="kicker">The People</div>
+      <h2>A family, not a franchise.</h2>
+      <p>Reviewers don't just talk about the food — they talk about the owners who remember your order, Ana who explains every dish, and the grandmother whose hand-knitted Mother Mary dolls sit by the register. That's not something you can build. It's something you grow.</p>
+      <p style="font-family:var(--display);font-style:italic;font-size:18px;color:#f2c061">"This place is amazing. I just about eat here every day." — a Local Guide, 5 stars</p>
+    </div>
+    <img src="biz/freddys/f1.jpg" alt="Guest enjoying breakfast at Freddy's Kitchen">
+  </div>
+</section>
+
+<section class="block wrap">
+  <div class="rv">
+    <div class="kicker">Word of Mouth</div>
+    <blockquote class="bigquote" id="quote">
+      "Fantastic food, welcoming staff, fair prices, and cute atmosphere. The owners are super friendly — the food is incredible."
+      <cite>— stitched from real Google reviews · 4.8★ across 334</cite>
+    </blockquote>
+  </div>
+  <div class="marquee" aria-hidden="true"><div class="track" id="mqtrack">
+    <span><i>★★★★★</i>"Amazing place. Food is incredible." — Luis A.</span>
+    <span><i>★★★★★</i>"I just about eat here everyday." — Kimberly</span>
+    <span><i>★★★★★</i>"Ana was amazing. 💯 recommended!" — Giovanna E.</span>
+    <span><i>★★★★★</i>"Welcoming staff, fair prices."</span>
+  </div></div>
+</section>
+
+<section class="block wrap" id="visit" style="padding-top:0">
+  <div class="rv"><div class="kicker">Come Hungry</div><h2>Sun Plaza, University Drive</h2></div>
+  <div class="visit">
+    <div class="rv">
+      <h3>Hours</h3>
+      <p style="margin:0;font-size:16px"><b>Breakfast from 7:30 AM</b><br>Open daily — call to confirm today's hours.</p>
+    </div>
+    <div class="rv">
+      <h3>Find us</h3>
+      <p style="margin:0 0 8px;font-size:18px"><b>2112 N University Dr</b><br>Sun Plaza, Floor 1 · Sunrise, FL 33322</p>
+      <a href="https://maps.google.com/?q=Freddy's+Kitchen+2112+N+University+Dr+Sunrise+FL" style="color:var(--terra);font-weight:700;text-decoration:none;border-bottom:2px solid var(--gold)">Open in Google Maps</a>
+      <div class="amen"><span>Family-owned</span><span>Dine-in</span><span>Takeout</span><span>Frozen meals to-go</span><span>Order online</span></div>
+    </div>
+    <div class="rv">
+      <h3>Order ahead</h3>
+      <div class="phone-big">(954) 292-4822</div>
+      <p style="font-size:14px;color:var(--soft)">Call and it's hot when you arrive.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mega">
+  <div class="kicker">Tomorrow morning, solved</div>
+  <h2>Your arepa comes off the grill at 7:30.</h2>
+  <div class="cta-row" style="justify-content:center"><a class="btn hot" href="tel:+19542924822">Call (954) 292-4822</a></div>
+</section>
+
+<footer class="wrap">
+  <div>Freddy's Kitchen · Sun Plaza, Sunrise FL</div>
+  <div>Concept website — details to be confirmed by the owner</div>
+</footer>
+
+<div class="callbar"><span><b>Breakfast from 7:30 AM</b> · Sun Plaza</span><a href="tel:+19542924822">Call now</a></div>
+
+<script>
+(function(){
+var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* pinned photo chapters */
+var storyEl=document.getElementById('story');
+var chapters=[].slice.call(document.querySelectorAll('.schapter'));
+var caps=[].slice.call(document.querySelectorAll('.scap'));
+var capOn=-1;
+function setCap(i){ if(i===capOn) return; capOn=i;
+  caps.forEach(function(c,j){ c.style.transition='opacity .45s, transform .45s';
+    c.style.opacity=(j===i)?1:0; c.style.transform=(j===i)?'translateY(0)':'translateY(18px)'; });
+  chapters.forEach(function(ch,j){ ch.style.opacity=(j===i)?1:0; }); }
+function tick(){
+  requestAnimationFrame(tick);
+  var r=storyEl.getBoundingClientRect();
+  var total=r.height-innerHeight;
+  var raw=Math.max(0,Math.min(1,-r.top/Math.max(1,total)));
+  var active=raw<.34?0:raw<.67?1:2;
+  if(r.top<=0&&r.bottom>=innerHeight){ setCap(active);
+    var ch=chapters[active]; if(ch&&!reduced){ var img=ch.querySelector('img');
+      var lp=(raw-active*.333)/.333; img.style.transform='scale('+(1.04+lp*.08)+')'; }
+  } else setCap(active===0&&r.top>0?0:active);
+}
+setCap(0); tick();
+/* quote word scrub */
+var q=document.getElementById('quote');
+var tn=q.childNodes[0]; var words=tn.textContent.trim().split(' '); tn.remove();
+q.insertAdjacentHTML('afterbegin', words.map(function(w){return '<span class="w">'+w+'</span>'}).join(' '));
+var ws=[].slice.call(q.querySelectorAll('.w'));
+function qs(){ var r=q.getBoundingClientRect();
+  var pr=Math.max(0,Math.min(1,(innerHeight*.82-r.top)/(innerHeight*.5)));
+  var n=Math.floor(pr*ws.length);
+  for(var i=0;i<ws.length;i++) ws[i].style.opacity=i<n?1:.14; }
+addEventListener('scroll',qs,{passive:true}); qs();
+/* reveals + marquee */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}})},{threshold:.15});
+[].slice.call(document.querySelectorAll('.rv')).forEach(function(el){io.observe(el)});
+var mt=document.getElementById('mqtrack'); mt.innerHTML+=mt.innerHTML;
+})();
+</script>
